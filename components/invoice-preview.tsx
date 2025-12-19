@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { formatCurrency } from "@/lib/utils"
-import { Copy, Check } from "lucide-react"
+import { Copy, Check, Globe, Mail } from "lucide-react"
 import { useState } from "react"
 
 interface ServiceItem {
@@ -85,107 +85,100 @@ export function InvoicePreview({ data, totals }: InvoicePreviewProps) {
         id="invoice-preview"
         style={{
           fontFamily: "system-ui, -apple-system, sans-serif",
-          lineHeight: "1.5",
-          color: "#000",
-          userSelect: "text",
           WebkitUserSelect: "text",
           MozUserSelect: "text",
           msUserSelect: "text",
         }}
       >
-  {/* Header / Kop Surat */}
-<div className="flex flex-col lg:flex-row justify-between items-start lg:items-start gap-6 mb-4">
-  {/* Kiri: Logo + Identitas */}
-  <div className="flex flex-row items-start gap-6 flex-1">
-    {/* Logo */}
-    <div className="flex-shrink-0">
-      <Image
-        src="/supernesia_logo.png"
-        alt="Supernesia Logo"
-        width={280}
-        height={120}
-        className="h-32 w-auto object-contain"
-      />
-    </div>
+        {/* Header / Kop Surat */}
+        <div className="flex flex-row items-start justify-between gap-4 mb-2">
+          {/* Logo - Fixed Width - Resized Smaller - Nudged Down */}
+          <div className="flex-shrink-0 w-[170px] mt-5">
+            <Image
+              src="/logo_supernesia.png"
+              alt="Supernesia Logo"
+              width={160}
+              height={80}
+              className="h-16 w-auto object-contain"
+            />
+          </div>
 
-    {/* Info Perusahaan */}
-    <div className="text-[#2b2b2b] text-center mx-auto max-w-lg font-bebas">
-      <h1 className="text-3xl font-bold mb-1">PT Supernesia Creative Technology</h1>
-      <p className="text-lg font-medium leading-snug">
-        Gedung Wirausaha Lt. 1 Unit 104<br />
-        Jl. HR Rasuna Said Kav. C-5<br />
-        Jakarta Selatan, 12920, Daerah Khusus Ibukota Jakarta
-      </p>
+          {/* Company Info - Centered */}
+          <div className="flex-1 text-center px-4">
+            <h1 className="text-2xl font-bold mb-1 tracking-wide text-[#2b2b2b] leading-none pt-2">PT SUPERNESIA CREATIVE TECHNOLOGY</h1>
+            <div className="text-[#2b2b2b] text-sm leading-snug">
+              <p className="font-medium whitespace-nowrap">
+                Gedung Wirausaha Lt. 1 Unit 104, Jl. HR Rasuna Said Kav. C-5 Jakarta Selatan, 12920. Telp 021-5277639
+              </p>
 
-      {/* <p className="text-lg font-semibold mt-2">
-        NPWP: 1000.0000.0276.1335
-      </p> */}
+              {/* Icons Row */}
+              <div className="flex justify-center gap-4 mt-1 font-medium items-center">
+                <div className="flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>supernesia.id</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5" />
+                  <span>info@supernesia.id</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-6 gap-1 mt-3 text-lg">
-        <p>📞 0812-8189-2625</p>
-        <p>📧 info@supernesia.id</p>
-      </div>
-    </div>
-  </div>
+          {/* Invoice Title and Number - Fixed Width */}
+          <div className="w-[180px] text-right">
+            <div className="bg-[#2b2b2b] text-white p-3 rounded-sm shadow-sm text-right">
+              <h2 className="text-xl font-black tracking-widest mb-1">INVOICE</h2>
+              <p className="text-[#e9e15b] font-mono text-lg font-bold">{data.invoiceNumber}</p>
+            </div>
+          </div>
+        </div>
 
-  {/* Kanan: INVOICE */}
-  <div className="text-right bg-[#2b2b2b] text-white p-4 rounded-lg min-w-[200px]">
-    <h2 className="text-2xl font-bold mb-2">INVOICE</h2>
-    <p className="text-[#e9e15b] font-mono text-lg font-bold">{data.invoiceNumber}</p>
-  </div>
-</div>
-
-{/* Garis Pembatas */}
-<hr className="border-t-2 border-[#2b2b2b] mb-6" />
-
-
-
+        {/* Garis Pembatas */}
+        <div className="border-t-4 border-double border-[#2b2b2b] mb-6 mt-4 mx-4"></div>
 
         {/* Subject */}
         {data.subject && (
-          <div className="mb-6">
+          <div className="mb-6 px-4">
             <p className="text-base font-medium text-[#2b2b2b]">
               <span className="font-bold">Perihal:</span> {data.subject}
             </p>
           </div>
         )}
 
-        {/* Client Info */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-  {/* Kiri: Info Klien */}
-  <div>
-    <h3 className="font-bold text-[#2b2b2b] mb-3 text-base">Kepada:</h3>
-    <div className="space-y-1 text-sm">
-      <p className="font-semibold text-base">{data.clientName}</p>
-      <p>
-        <strong>PIC:</strong> {data.picName}
-      </p>
-      <p>
-        <strong>Email:</strong> {data.clientEmail}
-      </p>
-      <p className="whitespace-pre-line">{data.clientAddress}</p>
-    </div>
-  </div>
+        {/* Client Info & Details */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 px-4">
+          {/* Kiri: Info Klien */}
+          <div>
+            <h3 className="font-bold text-[#2b2b2b] mb-3 text-base">Kepada:</h3>
+            <div className="space-y-1 text-sm">
+              <p className="font-semibold text-base">{data.clientName}</p>
+              <p>
+                <strong>PIC:</strong> {data.picName}
+              </p>
+              <p>
+                <strong>Email:</strong> {data.clientEmail}
+              </p>
+              <p className="whitespace-pre-line">{data.clientAddress}</p>
+            </div>
+          </div>
 
-  {/* Kanan: Detail Invoice */}
- {/* Kanan: Detail Invoice */}
-<div className="flex flex-col md:items-end md:pr-4 text-end">
-  <h3 className="font-bold text-[#2b2b2b] mb-3 text-base">Detail Invoice:</h3>
-  <div className="space-y-1 text-sm">
-    <p>
-      <strong>Tanggal:</strong> {new Date(data.invoiceDate).toLocaleDateString("id-ID")}
-    </p>
-    <p>
-      <strong>Jatuh Tempo:</strong> {new Date(data.dueDate).toLocaleDateString("id-ID")}
-    </p>
-  </div>
-</div>
-
-</div>
-
+          {/* Kanan: Detail Invoice */}
+          <div className="flex flex-col md:items-end text-end">
+            <h3 className="font-bold text-[#2b2b2b] mb-3 text-base">Detail Invoice:</h3>
+            <div className="space-y-1 text-sm">
+              <p>
+                <strong>Tanggal:</strong> {new Date(data.invoiceDate).toLocaleDateString("id-ID")}
+              </p>
+              <p>
+                <strong>Jatuh Tempo:</strong> {new Date(data.dueDate).toLocaleDateString("id-ID")}
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Services Table */}
-        <div className="mb-8">
+        <div className="mb-8 px-4">
           <table className="w-full border-collapse border-2 border-gray-400">
             <thead>
               <tr className="bg-[#e9e15b] bg-opacity-30">
@@ -193,7 +186,7 @@ export function InvoicePreview({ data, totals }: InvoicePreviewProps) {
                 <th className="border border-gray-400 p-3 text-left font-semibold text-sm">Nama Layanan</th>
                 <th className="border border-gray-400 p-3 text-left font-semibold text-sm">Paket</th>
                 <th className="border border-gray-400 p-3 text-center font-semibold text-sm">Qty</th>
-                <th className="border border-gray-400 p-3 text-right font-semibold text-sm">Harga Satuan</th>
+                <th className="border border-gray-400 p-3 text-right font-semibold text-sm">Harga</th>
                 <th className="border border-gray-400 p-3 text-right font-semibold text-sm">Subtotal</th>
               </tr>
             </thead>
@@ -201,7 +194,7 @@ export function InvoicePreview({ data, totals }: InvoicePreviewProps) {
               {data.services.map((service, index) => (
                 <tr key={service.id} className="hover:bg-gray-50">
                   <td className="border border-gray-400 p-3 text-center">{index + 1}</td>
-                  <td className="border border-gray-400 p-3">{service.name}</td>
+                  <td className="border border-gray-400 p-3 whitespace-pre-wrap">{service.name}</td>
                   <td className="border border-gray-400 p-3">{service.package}</td>
                   <td className="border border-gray-400 p-3 text-center">{service.qty}</td>
                   <td className="border border-gray-400 p-3 text-right">{formatCurrency(service.unitPrice)}</td>
@@ -215,7 +208,7 @@ export function InvoicePreview({ data, totals }: InvoicePreviewProps) {
         </div>
 
         {/* Totals */}
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-end mb-8 px-4">
           <div className="w-full max-w-md space-y-2 text-sm">
             <div className="flex justify-between py-1">
               <span>Subtotal:</span>
@@ -248,46 +241,47 @@ export function InvoicePreview({ data, totals }: InvoicePreviewProps) {
         </div>
 
         {/* Bank Info */}
-        <div className="bg-[#e9e15b] bg-opacity-10 p-6 rounded-lg border-2 border-[#e9e15b] border-opacity-40 mb-8">
-          <h3 className="font-bold text-[#2b2b2b] mb-4 text-base">Informasi Rekening Pembayaran</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 text-sm">
-            <div>
-              <span className="font-semibold">Bank:</span>
-              <p className="font-bold">BCA</p>
+        <div className="px-4">
+          <div className="bg-[#e9e15b] bg-opacity-10 p-6 rounded-lg border-2 border-[#e9e15b] border-opacity-40 mb-8">
+            <h3 className="font-bold text-[#2b2b2b] mb-4 text-base">Informasi Rekening Pembayaran</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 text-sm">
+              <div>
+                <span className="font-semibold">Bank:</span>
+                <p className="font-bold">BCA</p>
+              </div>
+              <div>
+                <span className="font-semibold">Account Number:</span>
+                <p className="font-mono font-bold text-lg">006 186 0401</p>
+              </div>
+              <div>
+                <span className="font-semibold">On behalf of:</span>
+                <p className="font-bold">PT. Supernesia Creative Technology</p>
+              </div>
             </div>
-            <div>
-              <span className="font-semibold">No. Rekening:</span>
-              <p className="font-mono font-bold text-lg">1060203284</p>
+            <div className="mb-4 text-sm">
+              <span className="font-semibold">NPWP PT Supernesia Creative Technology:</span>
+              <p className="font-mono font-semibold">1000.0000.0276.1335</p>
             </div>
-            <div>
-              <span className="font-semibold">Atas Nama:</span>
-              <p className="font-bold">Alexander H Sitanggang</p>
+            <div className="text-sm space-y-2 border-t border-[#e9e15b] border-opacity-40 pt-4">
+              <p className="font-bold">💡 Catatan Penting:</p>
+              <p>Mohon melakukan pembayaran sesuai jumlah total yang tertera pada invoice ini ke rekening di atas.</p>
+              <p>
+                Untuk mempercepat proses verifikasi dan pembukuan, harap sertakan <strong>Nomor Invoice</strong> (
+                {data.invoiceNumber}) pada kolom berita atau keterangan saat melakukan transfer.
+              </p>
+              <p>
+                Setelah pembayaran berhasil, mohon mengirimkan bukti transfer melalui email ke <strong>billing@supernesia.id</strong>{" "}
+                atau melalui kontak resmi kami agar proses aktivasi layanan dapat segera dilakukan.
+              </p>
+              <p className="italic font-medium">
+                Atas perhatian, kerjasama, dan kepercayaan Anda kepada PT Supernesia Creative Technology, kami ucapkan terima kasih.
+              </p>
             </div>
-          </div>
-          <div className="mb-4 text-sm">
-            <span className="font-semibold">NPWP PT Supernesia Creative Technology:</span>
-            <p className="font-mono font-semibold">1000.0000.0276.1335</p>
-          </div>
-          <div className="text-sm space-y-2 border-t border-[#e9e15b] border-opacity-40 pt-4">
-            <p className="font-bold">💡 Catatan Penting:</p>
-            <p>Mohon melakukan pembayaran sesuai jumlah total yang tertera pada invoice ini ke rekening di atas.</p>
-            <p>
-              Untuk mempercepat proses verifikasi dan pembukuan, harap sertakan <strong>Nomor Invoice</strong> (
-              {data.invoiceNumber}) pada kolom berita atau keterangan saat melakukan transfer.
-            </p>
-            <p>
-              Setelah pembayaran dilakukan, mohon kirimkan bukti transfer ke email kami di{" "}
-              <strong>billing@supernesia.id</strong> atau melalui kontak resmi yang tertera, agar layanan dapat segera
-              kami proses dan aktifkan.
-            </p>
-            <p className="italic font-medium">
-              Kami sangat menghargai kerjasama dan kepercayaan Anda kepada PT Supernesia Creative Technology.
-            </p>
           </div>
         </div>
 
         {/* Signatures */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-4 pb-8">
           <div>
             <h4 className="font-semibold mb-2 text-sm">Hormat kami,</h4>
             <h4 className="font-semibold mb-4 text-sm">PT Supernesia Creative Technology</h4>

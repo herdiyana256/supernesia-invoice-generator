@@ -1,7 +1,5 @@
 "use client"
-
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -322,7 +320,7 @@ Phone: 0812-8189-2625`
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="clientName">Nama Klien</Label>
+                  <Label htmlFor="clientName">Nama Client / Company</Label>
                   <Input
                     id="clientName"
                     value={invoiceData.clientName}
@@ -409,7 +407,7 @@ Phone: 0812-8189-2625`
                       <SelectItem value="Tagihan Training / Support">Tagihan Training / Support</SelectItem>
                       <SelectItem value="Proforma Invoice (Estimasi)">Proforma Invoice (Estimasi)</SelectItem>
                       <SelectItem value="Penawaran Harga / Quotation">Penawaran Harga / Quotation</SelectItem>
-                      
+
                     </SelectContent>
                   </Select>
                 </div>
@@ -460,7 +458,7 @@ Phone: 0812-8189-2625`
                       <th className="text-left p-2 font-medium">Nama Layanan</th>
                       <th className="text-left p-2 font-medium">Paket</th>
                       <th className="text-left p-2 font-medium">Qty</th>
-                      <th className="text-left p-2 font-medium">Harga Satuan</th>
+                      <th className="text-left p-2 font-medium">Harga</th>
                       <th className="text-left p-2 font-medium">Subtotal</th>
                       <th className="text-left p-2 font-medium">Aksi</th>
                     </tr>
@@ -470,11 +468,12 @@ Phone: 0812-8189-2625`
                       <tr key={service.id} className="border-b">
                         <td className="p-2">{index + 1}</td>
                         <td className="p-2">
-                          <Input
+                          <Textarea
                             value={service.name}
                             onChange={(e) => updateServiceItem(service.id, "name", e.target.value)}
                             placeholder="Nama layanan"
-                            className="min-w-[150px]"
+                            className="min-w-[200px] min-h-[40px] resize-y"
+                            rows={1}
                           />
                         </td>
                         <td className="p-2">
@@ -666,7 +665,7 @@ Phone: 0812-8189-2625`
           </Card>
 
           {/* Bank Information */}
-          <BankInfoCard />
+          <BankInfoCard invoiceNumber={invoiceData.invoiceNumber} />
 
           {/* Signature Section */}
           <Card className="border-[#e9e15b]/30">

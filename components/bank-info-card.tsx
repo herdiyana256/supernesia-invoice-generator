@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, CreditCard, User } from "lucide-react"
 
-export function BankInfoCard() {
+interface BankInfoCardProps {
+  invoiceNumber: string
+}
+
+export function BankInfoCard({ invoiceNumber }: BankInfoCardProps) {
   return (
     <Card className="border-[#e9e15b] border-2">
       <CardHeader className="bg-[#e9e15b]/10">
@@ -23,15 +27,15 @@ export function BankInfoCard() {
             <div className="flex items-start gap-3">
               <CreditCard className="w-5 h-5 text-[#2b2b2b] mt-1" />
               <div>
-                <span className="font-semibold text-[#2b2b2b] block">No. Rekening:</span>
-                <p className="text-[#2b2b2b]/80 font-mono font-bold text-lg">1060203284</p>
+                <span className="font-semibold text-[#2b2b2b] block">Account Number:</span>
+                <p className="text-[#2b2b2b]/80 font-mono font-bold text-lg">006 186 0401</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <User className="w-5 h-5 text-[#2b2b2b] mt-1" />
               <div>
-                <span className="font-semibold text-[#2b2b2b] block">Atas Nama:</span>
-                <p className="text-[#2b2b2b]/80 font-medium">Alexander H Sitanggang</p>
+                <span className="font-semibold text-[#2b2b2b] block">On behalf of:</span>
+                <p className="text-[#2b2b2b]/80 font-medium">PT. Supernesia Creative Technology</p>
               </div>
             </div>
           </div>
@@ -51,17 +55,16 @@ export function BankInfoCard() {
 
               <p>
                 Untuk mempercepat proses verifikasi dan pembukuan, harap sertakan <strong>Nomor Invoice</strong>{" "}
-                (contoh: INV/SNC/2025/012) pada kolom berita atau keterangan saat melakukan transfer.
+                (contoh: {invoiceNumber}) pada kolom berita atau keterangan saat melakukan transfer.
               </p>
 
               <p>
-                Setelah pembayaran dilakukan, mohon kirimkan bukti transfer ke email kami di{" "}
-                <strong>billing@supernesia.id</strong> atau melalui kontak resmi yang tertera, agar layanan dapat segera
-                kami proses dan aktifkan.
+                Setelah pembayaran berhasil, mohon mengirimkan bukti transfer melalui email ke <strong>billing@supernesia.id</strong>{" "}
+                atau melalui kontak resmi kami agar proses aktivasi layanan dapat segera dilakukan.
               </p>
 
               <p className="italic">
-                Kami sangat menghargai kerjasama dan kepercayaan Anda kepada PT Supernesia Creative Technology.
+                Atas perhatian, kerjasama, dan kepercayaan Anda kepada PT Supernesia Creative Technology, kami ucapkan terima kasih.
               </p>
             </div>
           </div>
