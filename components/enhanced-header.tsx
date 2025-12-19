@@ -28,7 +28,7 @@ export function EnhancedHeader({ invoiceNumber, onInvoiceNumberChange }: Enhance
           <h1 className="text-2xl font-bold text-[#2b2b2b] tracking-wide mb-1 leading-none pt-2">PT SUPERNESIA CREATIVE TECHNOLOGY</h1>
           <div className="text-[#2b2b2b]/80 text-sm leading-relaxed">
             <p className="font-medium whitespace-nowrap md:whitespace-normal">
-              Gedung Wirausaha Lt. 1 Unit 104, Jl. HR Rasuna Said Kav. C-5 Jakarta Selatan, 12920. Telp 021-5277639
+              Wirausaha Building Lt. 1 Unit 104, Jl. HR Rasuna Said Kav. C-5 Jakarta Selatan, 12920. Telp 021-5277639
             </p>
 
             {/* Icons Row: Website & Email */}

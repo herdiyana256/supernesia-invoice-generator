@@ -108,7 +108,7 @@ export function InvoicePreview({ data, totals }: InvoicePreviewProps) {
             <h1 className="text-2xl font-bold mb-1 tracking-wide text-[#2b2b2b] leading-none pt-2">PT SUPERNESIA CREATIVE TECHNOLOGY</h1>
             <div className="text-[#2b2b2b] text-sm leading-snug">
               <p className="font-medium whitespace-nowrap">
-                Gedung Wirausaha Lt. 1 Unit 104, Jl. HR Rasuna Said Kav. C-5 Jakarta Selatan, 12920. Telp 021-5277639
+                Wirausaha Building Lt. 1 Unit 104, Jl. HR Rasuna Said Kav. C-5 Jakarta Selatan, 12920. Telp 021-5277639
               </p>
 
               {/* Icons Row */}
