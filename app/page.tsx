@@ -752,7 +752,8 @@ Phone: 0812-8189-2625`
                         <SelectContent>
                           <SelectItem value="CTO">CTO</SelectItem>
                           <SelectItem value="CEO">CEO</SelectItem>
-                         <SelectItem value="CEO">Direktur</SelectItem>
+                         <SelectItem value="Direktur">Direktur</SelectItem>
+                              <SelectItem value="Marketing Manager">Marketing Manager</SelectItem>
 
                           <SelectItem value="CPO">CPO</SelectItem>
                           <SelectItem value="IT Consultant">IT Consultant</SelectItem>
