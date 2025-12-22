@@ -699,7 +699,9 @@ Phone: 0812-8189-2625`
                         <SelectContent>
                           <SelectItem value="Finance Officer">Finance Officer</SelectItem>
                           <SelectItem value="Finance Support">Finance Support</SelectItem>
-                          <SelectItem value="SPV Manager">SPV Manager</SelectItem>
+                          <SelectItem value="SPV Manager">SPV Finance</SelectItem>
+                         <SelectItem value="Finance Manager">Finance Manager</SelectItem>
+
                         </SelectContent>
                       </Select>
                     </div>
@@ -750,6 +752,8 @@ Phone: 0812-8189-2625`
                         <SelectContent>
                           <SelectItem value="CTO">CTO</SelectItem>
                           <SelectItem value="CEO">CEO</SelectItem>
+                         <SelectItem value="CEO">Direktur</SelectItem>
+
                           <SelectItem value="CPO">CPO</SelectItem>
                           <SelectItem value="IT Consultant">IT Consultant</SelectItem>
                           <SelectItem value="Sales">Sales</SelectItem>
